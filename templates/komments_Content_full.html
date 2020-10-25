@@ -1,0 +1,31 @@
+<table class="outer" cellspacing="1">
+<tr class="odd">
+	<th><b><{$header.place}></b></th>
+	<th><b><{$header.topic}></b></th>
+	<{if $option.user != 0}>
+		<th align="center"><b><{$header.poster}></b></th>
+	<{/if}>
+	<th align="center"><b><{$header.reply}></b></th>
+	<th align="center"><b><{$header.read}></b></th>
+	<th align="right"><b><{$header.date}></b></th>
+</tr>
+<{foreach item=topic from=$topics}>
+	<tr class="<{cycle values="even,odd"}>">
+		<td style="vertical-align:middle;">
+		<{if $option.micon == 1}>
+			<a href="<{$topic.modulelink}>"><img src="<{$topic.moduleimg}>" align="absmiddle"></a>&nbsp;
+		<{/if}>
+		<a href="<{$topic.placelink}>"><{$topic.place}></a></td>
+		<td style="vertical-align:middle;"><a href="<{$topic.topiclink}>"><{$topic.topic}></a><{$topic.extra}></td>
+		<{if $option.user == 1}>
+			<td align="center" style="vertical-align:middle;"><a href="<{$topic.userprof}>"><img src="<{$topic.user}>" height="20" align="absmiddle"></a></td>
+		<{elseif $option.user == 2}>
+			<td align="center" style="vertical-align:middle;"><a href="<{$topic.userprof}>"><{$topic.user}></a></td>
+		<{/if}>
+		<td align="center" style="vertical-align:middle;"><{$topic.reply}></td>
+		<td align="center" style="vertical-align:middle;"><{$topic.read}></td>
+		<td align="right" style="vertical-align:middle;"><{$topic.date}></td>
+	</tr>
+<{/foreach}>
+</table>
+<{if $option.footer == 1}><{include file='db:komments_footer.html' footer=$footer}><{/if}>

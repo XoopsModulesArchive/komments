@@ -1,0 +1,8 @@
+<table cellspacing='1'>
+<tr>
+<{section name='footer' loop=$footer.name}>
+<td><img src='<{$footer.img[footer]}>'>&nbsp;<{$footer.name[footer]}></td>
+<{if $smarty.section.footer.index_next is div by $footer.option.row}></tr><tr><{/if}>
+<{/section}>
+</tr>
+</table>

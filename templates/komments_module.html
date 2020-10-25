@@ -1,0 +1,9 @@
+<{foreach item=mod from=$module}>
+<div class="item">
+  <div class="itemHead"><span class="itemTitle"><img src='<{$mod.img}>'><{$mod.name}></span></div>
+  <div class="itemBody">
+    <{include file="$tempfile" topics=$mod.topics header=$header option=$option}>
+  </div>
+</div>
+<br>
+<{/foreach}>
